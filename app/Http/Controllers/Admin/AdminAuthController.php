@@ -77,16 +77,17 @@ class AdminAuthController extends Controller
         return redirect()->route('admin_profile')->with('succces','profile berhasil diupdate');
     }
 
-    public function forgetPassword(){
-        return view('admin.forget_password');
-    }
-
-    public function logout()
+     public function logout()
     {
         Auth::guard('admin')->logout();
         return redirect()->route('admin_login')->with('success','Logout is successful!');
     }
 
+    public function forgetPassword(){
+        return view('admin.forget_password');
+    }
+
+   
     public function forget_password_submit(Request $request)
 {
     $request->validate([
